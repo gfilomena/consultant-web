@@ -1,0 +1,413 @@
+/* ===== Career Coaching Page Styles ===== */
+
+/* Hero Section */
+.coaching-hero {
+    position: relative;
+    padding: 140px 0 80px;
+    background: linear-gradient(135deg, hsl(200, 100%, 27%), hsl(200, 85%, 40%));
+    overflow: hidden;
+}
+
+.coaching-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+}
+
+.coaching-hero-background::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    animation: float 20s ease-in-out infinite;
+}
+
+.coaching-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--text-white);
+}
+
+.coaching-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-white);
+}
+
+.coaching-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+/* Introduction Section */
+.coaching-intro {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-primary);
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.intro-text strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Key Themes Section */
+.coaching-themes {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-secondary);
+}
+
+.themes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.theme-card {
+    background: var(--bg-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    text-align: center;
+}
+
+.theme-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.theme-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-sm);
+    display: inline-block;
+    transition: transform var(--transition-base);
+}
+
+.theme-card:hover .theme-icon {
+    transform: scale(1.15);
+}
+
+.theme-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.theme-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* Key Steps Section */
+.coaching-steps {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-primary);
+}
+
+.steps-timeline {
+    max-width: 800px;
+    margin: var(--spacing-lg) auto 0;
+    position: relative;
+}
+
+.steps-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.step-item {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    animation: fadeInLeft 0.6s ease;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    color: var(--text-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 1;
+}
+
+.step-content {
+    flex: 1;
+    padding: var(--spacing-sm) 0;
+}
+
+.step-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.step-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* Why Coaching Section */
+.why-coaching {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-secondary);
+}
+
+.why-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.why-description {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.why-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.benefit-item:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-sm);
+}
+
+.benefit-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--gradient-primary);
+    color: var(--text-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.benefit-item span {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.why-visual {
+    position: relative;
+}
+
+.visual-placeholder {
+    width: 100%;
+    height: 450px;
+    background: var(--gradient-accent);
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.visual-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+/* CTA Section */
+.coaching-cta {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-primary);
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-xl);
+    color: var(--text-white);
+    box-shadow: var(--shadow-xl);
+}
+
+.cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: var(--spacing-sm);
+}
+
+.cta-description {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.95;
+    line-height: 1.7;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.coaching-cta .btn-primary {
+    background: var(--bg-card);
+    color: var(--primary-color);
+}
+
+.coaching-cta .btn-primary:hover {
+    background: var(--text-white);
+    transform: translateY(-3px);
+}
+
+.coaching-cta .btn-secondary {
+    background: transparent;
+    color: var(--text-white);
+    border: 2px solid var(--text-white);
+}
+
+.coaching-cta .btn-secondary:hover {
+    background: var(--text-white);
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .coaching-hero {
+        padding: 120px 0 60px;
+    }
+
+    .themes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps-timeline::before {
+        left: 20px;
+    }
+
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+
+    .step-title {
+        font-size: 1.2rem;
+    }
+
+    .why-content {
+        grid-template-columns: 1fr;
+    }
+
+    .why-visual {
+        order: -1;
+    }
+
+    .visual-placeholder {
+        height: 300px;
+    }
+
+    .cta-content {
+        padding: var(--spacing-lg);
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .coaching-cta .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .step-item {
+        gap: var(--spacing-sm);
+    }
+
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .steps-timeline::before {
+        left: 15px;
+    }
+}
