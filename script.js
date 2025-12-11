@@ -345,7 +345,7 @@ revealElements.forEach(element => {
 });
 
 // ===== Console Welcome Message =====
-console.log('%c👋 Welcome to Elite Consulting!', 'font-size: 20px; font-weight: bold; color: #6366f1;');
+console.log('%c👋 Welcome to Alessandro Marangi Career Coach!', 'font-size: 20px; font-weight: bold; color: #6366f1;');
 console.log('%cInterested in our services? Contact us at alessandro.marangi1@gmail.com', 'font-size: 14px; color: #6b7280;');
 
 // ===== Booking Calendar Functionality =====
