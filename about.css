@@ -78,7 +78,9 @@
 .profile-image {
     width: 100%;
     aspect-ratio: 1;
-    background: var(--gradient-primary);
+    background-image: url('images/profile-alessandro.jpg');
+    background-size: cover;
+    background-position: center;
     border-radius: var(--radius-xl);
     position: relative;
     overflow: hidden;
