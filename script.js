@@ -183,72 +183,81 @@ contactForm.addEventListener('submit', (e) => {
     const company = document.getElementById('company').value;
     const message = document.getElementById('message').value;
 
-    // Create success message
-    const successMessage = document.createElement('div');
-    successMessage.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: linear-gradient(135deg, #10b981, #059669);
-        color: white;
-        padding: 1.5rem 2rem;
-        border-radius: 12px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        z-index: 10000;
-        animation: slideIn 0.5s ease;
-        font-weight: 600;
-    `;
-    successMessage.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 24px;">✓</span>
-            <div>
-                <div style="font-size: 1.1rem; margin-bottom: 4px;">Message Sent!</div>
-                <div style="font-size: 0.9rem; opacity: 0.9;">We'll get back to you soon.</div>
-            </div>
-        </div>
-    `;
+    // Prepare EmailJS parameters
+    const templateParams = {
+        to_name: "Alessandro Marangi",
+        from_name: name,
+        from_email: email,
+        phone_number: "Not provided (Contact Form)",
+        service_type: "General Inquiry",
+        booking_date: "N/A",
+        booking_time: "N/A",
+        message: `Company: ${company}\n\nMessage:\n${message}`
+    };
 
-    // Add animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideIn {
-            from {
+    // Change button state
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    // Send via EmailJS
+    emailjs.send('service_wmfkp8h', 'template_b3rxhbs', templateParams)
+        .then(function () {
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                background: white;
+                color: #10b981;
+                padding: 1rem 2rem;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                z-index: 1000;
                 transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
+                transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                border-left: 5px solid #10b981;
+            `;
+            successMessage.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 24px;">✓</span>
+                    <div>
+                        <div style="font-size: 1.1rem; margin-bottom: 4px;">Message Sent!</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">We'll get back to you soon.</div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(successMessage);
 
-    document.body.appendChild(successMessage);
+            // Animate in
+            requestAnimationFrame(() => {
+                successMessage.style.transform = 'translateX(0)';
+            });
 
-    // Reset form
-    contactForm.reset();
+            // Reset form
+            contactForm.reset();
 
-    // Remove message after 4 seconds
-    setTimeout(() => {
-        successMessage.style.animation = 'slideOut 0.5s ease';
-        setTimeout(() => {
-            successMessage.remove();
-        }, 500);
-    }, 4000);
+            // Remove message after 4 seconds
+            setTimeout(() => {
+                successMessage.style.transform = 'translateX(400px)';
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 500);
+            }, 4000);
 
-    // Log form data (in production, this would be sent to a server)
-    console.log('Form submitted:', { name, email, company, message });
+        }, function (error) {
+            console.error('FAILED...', error);
+            alert('Failed to send message. Please try again later.');
+        })
+        .finally(() => {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        });
 });
 
 // ===== Parallax Effect for Hero Background =====
