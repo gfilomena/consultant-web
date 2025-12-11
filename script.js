@@ -468,7 +468,7 @@ timeSlots.forEach(slot => {
 // Initialize EmailJS
 (function () {
     // PUBLIC KEY - User needs to replace this
-    emailjs.init("YOUR_PUBLIC_KEY");
+    emailjs.init("kq_4a5BZqXzN0lmnD");
 })();
 
 // Captcha Logic
@@ -545,7 +545,7 @@ confirmBookingBtn.addEventListener('click', () => {
     confirmBookingBtn.textContent = 'Sending...';
     confirmBookingBtn.disabled = true;
 
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+    emailjs.send('service_wmfkp8h', 'template_b3rxhbs', templateParams)
         .then(function (response) {
             console.log('SUCCESS!', response.status, response.text);
             showNotification(`Booking confirmed for ${templateParams.booking_date} at ${templateParams.booking_time}! Email sent.`, 'success');
