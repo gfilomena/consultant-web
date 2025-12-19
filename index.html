@@ -21,8 +21,8 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <span class="logo-icon">◆</span>
-                <span class="logo-text">Alessandro Marangi Career Coach</span>
+                <div class="logo-text">Alessandro Marangi</div>
+                <div class="logo-subtitle">Career Consultant and Coach</div>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
@@ -42,39 +42,16 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background"></div>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    Transform Your Business
-                    <span class="gradient-text">With Strategic Excellence</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Unlock unprecedented growth with data-driven insights and proven methodologies
-                    that have helped over 500+ companies achieve their goals.
+        <div class="hero-overlay"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Alessandro Marangi</h1>
+                <h2 class="hero-subtitle">Career Consultant and Coach</h2>
+                <p class="hero-description">
+                    Unlock your potential and navigate your career path with confidence. 
+                    Expert guidance for leadership integration and professional growth.
                 </p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary">Schedule Consultation</button>
-                    <button class="btn btn-secondary">View Case Studies</button>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="500">0</div>
-                        <div class="stat-label">Clients Served</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="98">0</div>
-                        <div class="stat-label">Success Rate %</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="15">0</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
         </div>
     </section>
 
@@ -82,7 +59,7 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Our Expertise</span>
+                <span class="section-tag">Services</span>
                 <h2 class="section-title">Comprehensive Solutions</h2>
                 <p class="section-description">
                     Tailored strategies designed to address your unique challenges and drive measurable results.
@@ -244,7 +221,7 @@
         <div class="container">
             <div class="contact-content">
                 <div class="contact-info">
-                    <span class="section-tag">Get In Touch</span>
+                    <span class="section-tag">Contact</span>
                     <h2 class="section-title">Let's Start Your Transformation</h2>
                     <p class="contact-description">
                         Ready to take your business to the next level? Schedule a free consultation
@@ -258,13 +235,7 @@
                                 <div class="contact-value">alessandro.marangi1@gmail.com</div>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div>
-                                <div class="contact-label">Phone</div>
-                                <div class="contact-value">+39 347 820 1741</div>
-                            </div>
-                        </div>
+
 
                     </div>
                 </div>
@@ -288,100 +259,7 @@
         </div>
     </section>
 
-    <!-- Booking Calendar Section -->
-    <section id="booking" class="booking-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Book Your Session</span>
-                <h2 class="section-title">Schedule a Consultation</h2>
-                <p class="section-description">
-                    Choose your preferred date and time for a personalized consultation session.
-                </p>
-            </div>
 
-            <div class="booking-container">
-                <div class="booking-calendar">
-                    <div class="calendar-header">
-                        <button class="calendar-nav" id="prevMonth">‹</button>
-                        <h3 class="calendar-title" id="calendarTitle">December 2025</h3>
-                        <button class="calendar-nav" id="nextMonth">›</button>
-                    </div>
-                    <div class="calendar-weekdays">
-                        <div class="weekday">Sun</div>
-                        <div class="weekday">Mon</div>
-                        <div class="weekday">Tue</div>
-                        <div class="weekday">Wed</div>
-                        <div class="weekday">Thu</div>
-                        <div class="weekday">Fri</div>
-                        <div class="weekday">Sat</div>
-                    </div>
-                    <div class="calendar-days" id="calendarDays">
-                        <!-- Days will be generated by JavaScript -->
-                    </div>
-                </div>
-
-                <div class="booking-details">
-                    <div class="selected-date-display">
-                        <div class="selected-date-icon">📅</div>
-                        <div class="selected-date-info">
-                            <div class="selected-date-label">Selected Date</div>
-                            <div class="selected-date-value" id="selectedDateDisplay">No date selected</div>
-                        </div>
-                    </div>
-
-                    <div class="time-slots">
-                        <h4 class="booking-subtitle">Available Time Slots</h4>
-                        <div class="time-slots-grid" id="timeSlots">
-                            <button class="time-slot" data-time="09:00">09:00 AM</button>
-                            <button class="time-slot" data-time="10:00">10:00 AM</button>
-                            <button class="time-slot" data-time="11:00">11:00 AM</button>
-                            <button class="time-slot" data-time="14:00">02:00 PM</button>
-                            <button class="time-slot" data-time="15:00">03:00 PM</button>
-                            <button class="time-slot" data-time="16:00">04:00 PM</button>
-                        </div>
-                    </div>
-
-                    <div class="booking-form">
-                        <h4 class="booking-subtitle">Your Information</h4>
-                        <div class="form-group">
-                            <select id="serviceType" class="form-input">
-                                <option value="">Select Service Type</option>
-                                <option value="career-coaching">Career Coaching</option>
-                                <option value="business-strategy">Business Strategy</option>
-                                <option value="digital-transformation">Digital Transformation</option>
-                                <option value="leadership-development">Leadership Development</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="bookingName" class="form-input" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="bookingEmail" class="form-input" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="bookingPhone" class="form-input" placeholder="Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <textarea id="bookingNotes" class="form-input" rows="3"
-                                placeholder="Additional notes (optional)"></textarea>
-                        </div>
-                        <div class="form-group captcha-group" style="display: flex; gap: 10px; align-items: center;">
-                            <div id="captchaQuestion"
-                                style="font-weight: bold; color: var(--text-color); min-width: 80px;"></div>
-                            <input type="number" id="captchaAnswer" class="form-input" placeholder="Answer" required
-                                style="flex: 1;">
-                        </div>
-                        <!-- EmailJS SDK -->
-                        <script type="text/javascript"
-                            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-                        <button class="btn btn-primary btn-full" id="confirmBooking">
-                            Confirm Booking
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
 
@@ -390,8 +268,8 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-icon">◆</span>
-                        <span class="logo-text">Alessandro Marangi Career Coach</span>
+                        <div class="logo-text">Alessandro Marangi</div>
+                        <div class="logo-subtitle">Career Consultant and Coach</div>
                     </div>
                     <p class="footer-description">
                         Transforming businesses through strategic excellence and innovative solutions.
