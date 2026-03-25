@@ -89,6 +89,51 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(section => sectionObserver.observe(section));
 
+// #region agent log
+window.addEventListener('DOMContentLoaded', () => {
+    try {
+        const el = document.querySelector('.contact-linkedin');
+        const parent = document.querySelector('.contact-content.contact-content--centered');
+        const container = el ? el.closest('.container') : null;
+
+        const get = (node) => {
+            if (!node) return null;
+            const cs = window.getComputedStyle(node);
+            return {
+                display: cs.display,
+                position: cs.position,
+                width: cs.width,
+                maxWidth: cs.maxWidth,
+                marginLeft: cs.marginLeft,
+                marginRight: cs.marginRight,
+                paddingLeft: cs.paddingLeft,
+                paddingRight: cs.paddingRight,
+                textAlign: cs.textAlign,
+                justifyItems: cs.justifyItems,
+                alignItems: cs.alignItems,
+                justifyContent: cs.justifyContent,
+                gap: cs.gap,
+                fontSize: cs.fontSize,
+            };
+        };
+
+        fetch('http://127.0.0.1:7521/ingest/c572a708-c10d-4b98-a056-6bddb3fb4ff7', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain', 'X-Debug-Session-Id': '36872a' },
+            body: JSON.stringify({ sessionId: '36872a', runId: 'pre-fix', hypothesisId: 'H_contact_alignment', location: 'script.js:93', message: 'Computed styles for contact LinkedIn block', data: { href: window.location.href, hash: window.location.hash, hasContactLinkedin: !!el, hasParentCentered: !!parent, contactLinkedin: get(el), parentCentered: get(parent), container: get(container), cssFirstSheetHref: document.styleSheets && document.styleSheets[0] ? (document.styleSheets[0].href || 'inline') : null, cssSheetsCount: document.styleSheets ? document.styleSheets.length : null }, timestamp: Date.now() })
+        }).catch(() => { });
+    } catch (e) {
+        fetch('http://127.0.0.1:7521/ingest/c572a708-c10d-4b98-a056-6bddb3fb4ff7', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain', 'X-Debug-Session-Id': '36872a' },
+            body: JSON.stringify({ sessionId: '36872a', runId: 'pre-fix', hypothesisId: 'H_contact_alignment', location: 'script.js:93', message: 'Error collecting computed styles', data: { error: String(e) }, timestamp: Date.now() })
+        }).catch(() => { });
+    }
+});
+// #endregion agent log
+
 // ===== Counter Animation =====
 const statNumbers = document.querySelectorAll('.stat-number');
 let hasAnimated = false;
@@ -174,6 +219,7 @@ testimonialCards.forEach((card, index) => {
 // ===== Contact Form Handling =====
 const contactForm = document.getElementById('contactForm');
 
+if (contactForm) {
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -259,6 +305,7 @@ contactForm.addEventListener('submit', (e) => {
             submitBtn.disabled = false;
         });
 });
+}
 
 // ===== Parallax Effect for Hero Background =====
 window.addEventListener('scroll', () => {
